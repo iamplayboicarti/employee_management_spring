@@ -1,6 +1,6 @@
 spring:
     application:
-        name: hr_spring_management_test
+        name: employee_spring_management_test
     data:
         web:
             pageable:

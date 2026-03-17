@@ -5,16 +5,6 @@
             "name": "Spring Boot-SpringRestWithAiApplication<spring-rest-with-ai>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
-            "mainClass": "vn.hoidanit.springrestwithai.SpringRestWithAiApplication",
-            "projectName": "spring-rest-with-ai",
-            "args": "",
-            "envFile": "${workspaceFolder}/.env"
-        },
-        {
-            "type": "java",
-            "name": "Spring Boot-SpringRestWithAiApplication<spring-rest-with-ai>",
-            "request": "launch",
-            "cwd": "${workspaceFolder}",
             "mainClass": "vn.tuan_dao.springrestwithai.SpringRestWithAiApplication",
             "projectName": "spring-rest-with-ai",
             "args": "",
