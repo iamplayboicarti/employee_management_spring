@@ -10,10 +10,13 @@ import java.util.List;
  *
  * @param <T> Kiểu dữ liệu của field data
  */
+
+// JsonInclude: khi bien class null thi se khong duoc include trong JSON response, 
+// giup cho response gon gang hon
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ApiResponse<T> {
 
-    // ========== FIELDS ==========
+    // Cac thuoc tinh chung cho ca success va error response
 
     private int statusCode;
     private String message;
@@ -32,14 +35,14 @@ public class ApiResponse<T> {
     public ApiResponse() {
     }
 
-    // Constructor cho Success
+    // Constructor cho Success, luon private de tranh su dung sai
     private ApiResponse(int statusCode, String message, T data) {
         this.statusCode = statusCode;
         this.message = message;
         this.data = data;
     }
 
-    // Constructor cho Error
+    // Constructor cho Error, luon private de tranh su dung sai
     private ApiResponse(int statusCode, String message, String error, List<String> details) {
         this.statusCode = statusCode;
         this.message = message;

@@ -54,6 +54,7 @@ public class UserController {
 
     // Khong nen viet logic qua nhieu trong controller, ma nen de service xu ly, controller chi nhan request, goi service, tra ve response
     // Khong nen tra ra du lieu sai trong controller, ma nen de service xu ly, neu co loi thi service se nem exception, controller se bat va tra ve response phu hop
+    // De global exception handler xu ly, tranh viec viet nhieu code xu ly loi trong controller, de controller gon gang hon, de global exception handler xu ly loi nhat quan hon
     @PostMapping
     public ResponseEntity<ApiResponse<UserResponse>> create(
             @Valid @RequestBody CreateUserRequest request) {

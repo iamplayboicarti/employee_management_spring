@@ -62,7 +62,8 @@ public class GlobalExceptionHandler {
                                 .body(ApiResponse.conflict(ex.getMessage()));
         }
 
-        // ========== SPRING MVC EXCEPTIONS ==========
+        // ========= SPRING FRAMEWORK EXCEPTIONS ==========
+        // Các exception phổ biến do Spring ném ra khi có lỗi liên quan đến request, ví dụ: sai kiểu dữ liệu, thiếu trường bắt buộc, phương thức HTTP không đúng
 
         @ExceptionHandler(MethodArgumentTypeMismatchException.class)
         public ResponseEntity<ApiResponse<Void>> handleTypeMismatch(MethodArgumentTypeMismatchException ex) {
