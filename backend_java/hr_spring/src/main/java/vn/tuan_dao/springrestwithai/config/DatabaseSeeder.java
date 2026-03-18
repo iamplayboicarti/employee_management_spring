@@ -61,11 +61,7 @@ public class DatabaseSeeder implements CommandLineRunner {
 
         log.info(">>> Database seeded successfully");
     }
-
-    // ═══════════════════════════════════════
-    // Step 1: Permissions (21 records)
-    // ═══════════════════════════════════════
-
+    
     private List<Permission> seedPermissions() {
         List<Permission> permissions = List.of(
                 // USER module

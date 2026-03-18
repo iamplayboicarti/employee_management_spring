@@ -23,7 +23,8 @@ import org.springframework.web.bind.annotation.RestController;
 import java.net.URI;
 
 @RestController
-@RequestMapping("/api/v1/users")
+// khai báo base URL cho tất cả endpoint trong controller này, gomn cả endpoint getById, create, update, delete
+@RequestMapping("/api/v1/users") 
 public class UserController {
 
     private final UserService userService;
@@ -33,6 +34,9 @@ public class UserController {
     }
 
     @GetMapping
+    //ResponseEntity là một class đại diện cho toàn bộ một phản hồi HTTP (HTTP Response).
+    // Nó cho phép kiểm soát toàn bộ phản hồi, bao gồm cả status code, headers và body. Trong trường hợp này, body của phản hồi sẽ là một ApiResponse chứa ResultPaginationDTO.
+    
     public ResponseEntity<ApiResponse<ResultPaginationDTO>> filter(
             @ParameterObject UserFilterRequest filter,
             @ParameterObject Pageable pageable) {
@@ -41,11 +45,15 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
+    // ResponseEntity<ApiResponse<UserResponse>>: kiểu trả về của API, bao gồm cả metadata (status, message) và dữ liệu thực tế (result)
+    // Nho co apiResponse de dam bao format response nhat quan, de client de dang xu ly, tranh dai dong code khi client nhan response
     public ResponseEntity<ApiResponse<UserResponse>> getById(@PathVariable Long id) {
         UserResponse response = userService.getById(id);
         return ResponseEntity.ok(ApiResponse.success("Lấy thông tin người dùng thành công", response));
     }
 
+    // Khong nen viet logic qua nhieu trong controller, ma nen de service xu ly, controller chi nhan request, goi service, tra ve response
+    // Khong nen tra ra du lieu sai trong controller, ma nen de service xu ly, neu co loi thi service se nem exception, controller se bat va tra ve response phu hop
     @PostMapping
     public ResponseEntity<ApiResponse<UserResponse>> create(
             @Valid @RequestBody CreateUserRequest request) {

@@ -9,6 +9,7 @@ import vn.tuan_dao.springrestwithai.dto.ApiResponse;
 import vn.tuan_dao.springrestwithai.feature.dashboard.dto.DashboardResponse;
 
 @RestController
+
 @RequestMapping("/api/v1/dashboard")
 public class DashboardController {
 

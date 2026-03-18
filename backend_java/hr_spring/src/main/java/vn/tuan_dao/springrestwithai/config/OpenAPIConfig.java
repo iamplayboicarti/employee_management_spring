@@ -36,9 +36,9 @@ public class OpenAPIConfig {
 	private Contact createContact() {
 		// @formatter:off
 		return new Contact()
-				.email("hoidanit@example.com")
-				.name("Hỏi Dân IT")
-				.url("https://hoidanit.vn");
+				.email("tuan_dao@example.com")
+				.name("Tuan Dao")
+				.url("https://github.com/iamplayboicarti");
 		// @formatter:on
 	}
 
@@ -53,8 +53,8 @@ public class OpenAPIConfig {
 				.title("Spring REST with AI API")
 				.version("1.0")
 				.contact(createContact())
-				.description("This API exposes all endpoints (springrestwithai)")
-				.termsOfService("https://hoidanit.vn/donate")
+				.description("This API exposes all endpoints")
+				.termsOfService("https://example.com/terms")
 				.license(createLicense());
 		// @formatter:on
 	}
@@ -69,7 +69,7 @@ public class OpenAPIConfig {
 								"Server URL in Development environment"),
 						createServer("https://uat.example.com",
 								"Server URL in Testing environment"),
-						createServer("https://hoidanit.example.com",
+						createServer("https://api.example.com",
 								"Server URL in Production environment")))
 				.addSecurityItem(
 						new SecurityRequirement().addList("Bearer Authentication"))
