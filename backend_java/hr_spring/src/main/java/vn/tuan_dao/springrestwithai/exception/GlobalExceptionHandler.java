@@ -48,6 +48,13 @@ public class GlobalExceptionHandler {
                                 .body(ApiResponse.badRequest(ex.getMessage()));
         }
 
+        @ExceptionHandler(InvalidRequestException.class)
+        public ResponseEntity<ApiResponse<Void>> handleInvalidRequest(InvalidRequestException ex) {
+                log.warn("InvalidRequestException: {}", ex.getMessage());
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                                .body(ApiResponse.badRequest(ex.getMessage()));
+        }
+
         @ExceptionHandler(ResourceNotFoundException.class)
         public ResponseEntity<ApiResponse<Void>> handleResourceNotFound(ResourceNotFoundException ex) {
                 log.warn("ResourceNotFoundException: {}", ex.getMessage());

@@ -57,6 +57,7 @@ public class UserController {
     // De global exception handler xu ly, tranh viec viet nhieu code xu ly loi trong controller, de controller gon gang hon, de global exception handler xu ly loi nhat quan hon
     @PostMapping
     public ResponseEntity<ApiResponse<UserResponse>> create(
+        //valid de kiem tra du lieu dau vao
             @Valid @RequestBody CreateUserRequest request) {
         UserResponse response = userService.create(request);
         URI location = URI.create("/api/v1/users/" + response.id());

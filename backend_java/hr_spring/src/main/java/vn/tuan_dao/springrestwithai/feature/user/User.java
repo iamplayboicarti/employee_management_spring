@@ -70,7 +70,7 @@ public class User {
 
     public User() {
     }
-
+    
     @PrePersist
     protected void onCreate() {
         createdAt = Instant.now();
