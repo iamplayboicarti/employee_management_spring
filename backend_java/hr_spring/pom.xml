@@ -113,6 +113,11 @@
 			<artifactId>spring-boot-starter-mail</artifactId>
 		</dependency>
 
+		<!-- Spring Boot Actuator (for VS Code Spring Boot Dashboard) -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
 
 	</dependencies>
 
@@ -133,6 +138,9 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<mainClass>vn.tuan_dao.springrestfulAPI.SpringRestApplication</mainClass>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

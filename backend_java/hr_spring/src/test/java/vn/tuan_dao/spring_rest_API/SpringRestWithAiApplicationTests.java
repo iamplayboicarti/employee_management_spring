@@ -1,4 +1,4 @@
-package vn.tuan_dao.spring_rest_API;
+package vn.tuan_dao.springrestfulAPI;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -11,3 +11,4 @@ class SpringRestWithAiApplicationTests {
 	}
 
 }
+

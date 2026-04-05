@@ -1,4 +1,4 @@
-package vn.tuan_dao.spring_rest_API.common;
+package vn.tuan_dao.springrestfulAPI.common;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,11 +7,11 @@ import org.springframework.stereotype.Component;
 import org.springframework.test.web.servlet.request.RequestPostProcessor;
 import org.springframework.transaction.annotation.Transactional;
 
-import vn.tuan_dao.springrestwithai.feature.permission.Permission;
-import vn.tuan_dao.springrestwithai.feature.permission.PermissionRepository;
-import vn.tuan_dao.springrestwithai.feature.role.Role;
-import vn.tuan_dao.springrestwithai.feature.role.RoleRepository;
-import vn.tuan_dao.springrestwithai.security.PermissionAuthorizationManager;
+import vn.tuan_dao.springrestfulAPI.feature.permission.Permission;
+import vn.tuan_dao.springrestfulAPI.feature.permission.PermissionRepository;
+import vn.tuan_dao.springrestfulAPI.feature.role.Role;
+import vn.tuan_dao.springrestfulAPI.feature.role.RoleRepository;
+import vn.tuan_dao.springrestfulAPI.security.PermissionAuthorizationManager;
 
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.jwt;
 
@@ -109,3 +109,4 @@ public class TestDataFactory {
         permissionAuthorizationManager.loadCache();
     }
 }
+

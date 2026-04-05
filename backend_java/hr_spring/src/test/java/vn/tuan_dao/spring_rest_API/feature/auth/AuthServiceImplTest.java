@@ -1,4 +1,4 @@
-package vn.tuan_dao.spring_rest_API.feature.auth;
+package vn.tuan_dao.springrestfulAPI.feature.auth;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -18,20 +18,20 @@ import org.springframework.security.oauth2.jwt.JwtEncoder;
 import org.springframework.security.oauth2.jwt.JwtEncoderParameters;
 import org.springframework.test.util.ReflectionTestUtils;
 
-import vn.tuan_dao.springrestwithai.exception.DuplicateResourceException;
-import vn.tuan_dao.springrestwithai.exception.InvalidTokenException;
-import vn.tuan_dao.springrestwithai.exception.ResourceNotFoundException;
-import vn.tuan_dao.springrestwithai.feature.auth.AuthServiceImpl;
-import vn.tuan_dao.springrestwithai.feature.auth.RefreshToken;
-import vn.tuan_dao.springrestwithai.feature.auth.RefreshTokenRepository;
-import vn.tuan_dao.springrestwithai.feature.auth.dto.LoginRequest;
-import vn.tuan_dao.springrestwithai.feature.auth.dto.LoginResponse;
-import vn.tuan_dao.springrestwithai.feature.auth.dto.RegisterRequest;
-import vn.tuan_dao.springrestwithai.feature.auth.dto.RegisterResponse;
-import vn.tuan_dao.springrestwithai.feature.user.User;
-import vn.tuan_dao.springrestwithai.feature.user.UserRepository;
-import vn.tuan_dao.springrestwithai.feature.user.dto.UserResponse;
-import vn.tuan_dao.springrestwithai.util.constant.GenderEnum;
+import vn.tuan_dao.springrestfulAPI.exception.DuplicateResourceException;
+import vn.tuan_dao.springrestfulAPI.exception.InvalidTokenException;
+import vn.tuan_dao.springrestfulAPI.exception.ResourceNotFoundException;
+import vn.tuan_dao.springrestfulAPI.feature.auth.AuthServiceImpl;
+import vn.tuan_dao.springrestfulAPI.feature.auth.RefreshToken;
+import vn.tuan_dao.springrestfulAPI.feature.auth.RefreshTokenRepository;
+import vn.tuan_dao.springrestfulAPI.feature.auth.dto.LoginRequest;
+import vn.tuan_dao.springrestfulAPI.feature.auth.dto.LoginResponse;
+import vn.tuan_dao.springrestfulAPI.feature.auth.dto.RegisterRequest;
+import vn.tuan_dao.springrestfulAPI.feature.auth.dto.RegisterResponse;
+import vn.tuan_dao.springrestfulAPI.feature.user.User;
+import vn.tuan_dao.springrestfulAPI.feature.user.UserRepository;
+import vn.tuan_dao.springrestfulAPI.feature.user.dto.UserResponse;
+import vn.tuan_dao.springrestfulAPI.util.constant.GenderEnum;
 
 import java.time.Instant;
 import java.util.Collections;
@@ -284,3 +284,4 @@ class AuthServiceImplTest {
                 .build();
     }
 }
+

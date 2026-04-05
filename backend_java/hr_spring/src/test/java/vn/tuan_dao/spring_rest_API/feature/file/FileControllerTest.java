@@ -1,4 +1,4 @@
-package vn.tuan_dao.spring_rest_API.feature.file;
+package vn.tuan_dao.springrestfulAPI.feature.file;
 
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
@@ -25,8 +25,8 @@ import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 
-import vn.tuan_dao.spring_rest_API.common.TestDataFactory;
-import vn.tuan_dao.springrestwithai.config.FileUploadProperties;
+import vn.tuan_dao.springrestfulAPI.common.TestDataFactory;
+import vn.tuan_dao.springrestfulAPI.config.FileUploadProperties;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -186,3 +186,4 @@ class FileControllerTest {
                 .andExpect(status().isForbidden());
     }
 }
+

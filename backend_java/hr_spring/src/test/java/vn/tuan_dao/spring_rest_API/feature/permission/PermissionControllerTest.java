@@ -1,4 +1,4 @@
-package vn.tuan_dao.spring_rest_API.feature.permission;
+package vn.tuan_dao.springrestfulAPI.feature.permission;
 
 import tools.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.AfterEach;
@@ -12,11 +12,11 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 
-import vn.tuan_dao.spring_rest_API.common.TestDataFactory;
-import vn.tuan_dao.springrestwithai.feature.permission.Permission;
-import vn.tuan_dao.springrestwithai.feature.permission.PermissionRepository;
-import vn.tuan_dao.springrestwithai.feature.permission.dto.CreatePermissionRequest;
-import vn.tuan_dao.springrestwithai.feature.permission.dto.UpdatePermissionRequest;
+import vn.tuan_dao.springrestfulAPI.common.TestDataFactory;
+import vn.tuan_dao.springrestfulAPI.feature.permission.Permission;
+import vn.tuan_dao.springrestfulAPI.feature.permission.PermissionRepository;
+import vn.tuan_dao.springrestfulAPI.feature.permission.dto.CreatePermissionRequest;
+import vn.tuan_dao.springrestfulAPI.feature.permission.dto.UpdatePermissionRequest;
 
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
@@ -310,3 +310,4 @@ class PermissionControllerTest {
         return p;
     }
 }
+

@@ -1,4 +1,4 @@
-package vn.tuan_dao.spring_rest_API.feature.user;
+package vn.tuan_dao.springrestfulAPI.feature.user;
 
 import tools.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.AfterEach;
@@ -12,16 +12,16 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 
-import vn.tuan_dao.spring_rest_API.common.TestDataFactory;
-import vn.tuan_dao.springrestwithai.feature.company.Company;
-import vn.tuan_dao.springrestwithai.feature.company.CompanyRepository;
-import vn.tuan_dao.springrestwithai.feature.role.Role;
-import vn.tuan_dao.springrestwithai.feature.role.RoleRepository;
-import vn.tuan_dao.springrestwithai.feature.user.User;
-import vn.tuan_dao.springrestwithai.feature.user.UserRepository;
-import vn.tuan_dao.springrestwithai.feature.user.dto.CreateUserRequest;
-import vn.tuan_dao.springrestwithai.feature.user.dto.UpdateUserRequest;
-import vn.tuan_dao.springrestwithai.util.constant.GenderEnum;
+import vn.tuan_dao.springrestfulAPI.common.TestDataFactory;
+import vn.tuan_dao.springrestfulAPI.feature.company.Company;
+import vn.tuan_dao.springrestfulAPI.feature.company.CompanyRepository;
+import vn.tuan_dao.springrestfulAPI.feature.role.Role;
+import vn.tuan_dao.springrestfulAPI.feature.role.RoleRepository;
+import vn.tuan_dao.springrestfulAPI.feature.user.User;
+import vn.tuan_dao.springrestfulAPI.feature.user.UserRepository;
+import vn.tuan_dao.springrestfulAPI.feature.user.dto.CreateUserRequest;
+import vn.tuan_dao.springrestfulAPI.feature.user.dto.UpdateUserRequest;
+import vn.tuan_dao.springrestfulAPI.util.constant.GenderEnum;
 
 import java.util.List;
 
@@ -379,3 +379,4 @@ class UserControllerTest {
         return roleRepository.save(role);
     }
 }
+

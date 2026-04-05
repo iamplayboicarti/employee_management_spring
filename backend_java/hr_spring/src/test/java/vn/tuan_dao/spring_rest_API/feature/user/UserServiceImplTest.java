@@ -1,4 +1,4 @@
-package vn.tuan_dao.spring_rest_API.feature.user;
+package vn.tuan_dao.springrestfulAPI.feature.user;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -11,21 +11,21 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import vn.tuan_dao.springrestwithai.dto.ResultPaginationDTO;
-import vn.tuan_dao.springrestwithai.exception.DuplicateResourceException;
-import vn.tuan_dao.springrestwithai.exception.ResourceNotFoundException;
-import vn.tuan_dao.springrestwithai.feature.company.Company;
-import vn.tuan_dao.springrestwithai.feature.company.CompanyRepository;
-import vn.tuan_dao.springrestwithai.feature.role.Role;
-import vn.tuan_dao.springrestwithai.feature.role.RoleRepository;
-import vn.tuan_dao.springrestwithai.feature.user.User;
-import vn.tuan_dao.springrestwithai.feature.user.UserRepository;
-import vn.tuan_dao.springrestwithai.feature.user.UserServiceImpl;
-import vn.tuan_dao.springrestwithai.feature.user.dto.CreateUserRequest;
-import vn.tuan_dao.springrestwithai.feature.user.dto.UpdateUserRequest;
-import vn.tuan_dao.springrestwithai.feature.user.dto.UserFilterRequest;
-import vn.tuan_dao.springrestwithai.feature.user.dto.UserResponse;
-import vn.tuan_dao.springrestwithai.util.constant.GenderEnum;
+import vn.tuan_dao.springrestfulAPI.dto.ResultPaginationDTO;
+import vn.tuan_dao.springrestfulAPI.exception.DuplicateResourceException;
+import vn.tuan_dao.springrestfulAPI.exception.ResourceNotFoundException;
+import vn.tuan_dao.springrestfulAPI.feature.company.Company;
+import vn.tuan_dao.springrestfulAPI.feature.company.CompanyRepository;
+import vn.tuan_dao.springrestfulAPI.feature.role.Role;
+import vn.tuan_dao.springrestfulAPI.feature.role.RoleRepository;
+import vn.tuan_dao.springrestfulAPI.feature.user.User;
+import vn.tuan_dao.springrestfulAPI.feature.user.UserRepository;
+import vn.tuan_dao.springrestfulAPI.feature.user.UserServiceImpl;
+import vn.tuan_dao.springrestfulAPI.feature.user.dto.CreateUserRequest;
+import vn.tuan_dao.springrestfulAPI.feature.user.dto.UpdateUserRequest;
+import vn.tuan_dao.springrestfulAPI.feature.user.dto.UserFilterRequest;
+import vn.tuan_dao.springrestfulAPI.feature.user.dto.UserResponse;
+import vn.tuan_dao.springrestfulAPI.util.constant.GenderEnum;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -306,3 +306,4 @@ class UserServiceImplTest {
         return role;
     }
 }
+

@@ -1,4 +1,4 @@
-package vn.tuan_dao.spring_rest_API.feature.role;
+package vn.tuan_dao.springrestfulAPI.feature.role;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -10,17 +10,17 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 
-import vn.tuan_dao.springrestwithai.dto.ResultPaginationDTO;
-import vn.tuan_dao.springrestwithai.exception.DuplicateResourceException;
-import vn.tuan_dao.springrestwithai.exception.ResourceNotFoundException;
-import vn.tuan_dao.springrestwithai.feature.permission.Permission;
-import vn.tuan_dao.springrestwithai.feature.permission.PermissionRepository;
-import vn.tuan_dao.springrestwithai.feature.role.Role;
-import vn.tuan_dao.springrestwithai.feature.role.RoleRepository;
-import vn.tuan_dao.springrestwithai.feature.role.RoleServiceImpl;
-import vn.tuan_dao.springrestwithai.feature.role.dto.CreateRoleRequest;
-import vn.tuan_dao.springrestwithai.feature.role.dto.RoleResponse;
-import vn.tuan_dao.springrestwithai.feature.role.dto.UpdateRoleRequest;
+import vn.tuan_dao.springrestfulAPI.dto.ResultPaginationDTO;
+import vn.tuan_dao.springrestfulAPI.exception.DuplicateResourceException;
+import vn.tuan_dao.springrestfulAPI.exception.ResourceNotFoundException;
+import vn.tuan_dao.springrestfulAPI.feature.permission.Permission;
+import vn.tuan_dao.springrestfulAPI.feature.permission.PermissionRepository;
+import vn.tuan_dao.springrestfulAPI.feature.role.Role;
+import vn.tuan_dao.springrestfulAPI.feature.role.RoleRepository;
+import vn.tuan_dao.springrestfulAPI.feature.role.RoleServiceImpl;
+import vn.tuan_dao.springrestfulAPI.feature.role.dto.CreateRoleRequest;
+import vn.tuan_dao.springrestfulAPI.feature.role.dto.RoleResponse;
+import vn.tuan_dao.springrestfulAPI.feature.role.dto.UpdateRoleRequest;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -282,3 +282,4 @@ class RoleServiceImplTest {
         return p;
     }
 }
+

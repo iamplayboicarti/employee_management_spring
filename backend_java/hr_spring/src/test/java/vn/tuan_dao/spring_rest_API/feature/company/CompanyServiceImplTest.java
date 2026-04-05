@@ -1,4 +1,4 @@
-package vn.tuan_dao.spring_rest_API.feature.company;
+package vn.tuan_dao.springrestfulAPI.feature.company;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -10,15 +10,15 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 
-import vn.tuan_dao.springrestwithai.dto.ResultPaginationDTO;
-import vn.tuan_dao.springrestwithai.exception.DuplicateResourceException;
-import vn.tuan_dao.springrestwithai.exception.ResourceNotFoundException;
-import vn.tuan_dao.springrestwithai.feature.company.Company;
-import vn.tuan_dao.springrestwithai.feature.company.CompanyRepository;
-import vn.tuan_dao.springrestwithai.feature.company.CompanyServiceImpl;
-import vn.tuan_dao.springrestwithai.feature.company.dto.CompanyResponse;
-import vn.tuan_dao.springrestwithai.feature.company.dto.CreateCompanyRequest;
-import vn.tuan_dao.springrestwithai.feature.company.dto.UpdateCompanyRequest;
+import vn.tuan_dao.springrestfulAPI.dto.ResultPaginationDTO;
+import vn.tuan_dao.springrestfulAPI.exception.DuplicateResourceException;
+import vn.tuan_dao.springrestfulAPI.exception.ResourceNotFoundException;
+import vn.tuan_dao.springrestfulAPI.feature.company.Company;
+import vn.tuan_dao.springrestfulAPI.feature.company.CompanyRepository;
+import vn.tuan_dao.springrestfulAPI.feature.company.CompanyServiceImpl;
+import vn.tuan_dao.springrestfulAPI.feature.company.dto.CompanyResponse;
+import vn.tuan_dao.springrestfulAPI.feature.company.dto.CreateCompanyRequest;
+import vn.tuan_dao.springrestfulAPI.feature.company.dto.UpdateCompanyRequest;
 
 import java.util.List;
 import java.util.Optional;
@@ -221,3 +221,4 @@ class CompanyServiceImplTest {
         return c;
     }
 }
+

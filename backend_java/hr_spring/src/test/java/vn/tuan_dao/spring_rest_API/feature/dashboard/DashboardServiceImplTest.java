@@ -1,4 +1,4 @@
-package vn.tuan_dao.spring_rest_API.feature.dashboard;
+package vn.tuan_dao.springrestfulAPI.feature.dashboard;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -7,12 +7,12 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import vn.tuan_dao.springrestwithai.feature.company.CompanyRepository;
-import vn.tuan_dao.springrestwithai.feature.dashboard.DashboardServiceImpl;
-import vn.tuan_dao.springrestwithai.feature.dashboard.dto.DashboardResponse;
-import vn.tuan_dao.springrestwithai.feature.permission.PermissionRepository;
-import vn.tuan_dao.springrestwithai.feature.role.RoleRepository;
-import vn.tuan_dao.springrestwithai.feature.user.UserRepository;
+import vn.tuan_dao.springrestfulAPI.feature.company.CompanyRepository;
+import vn.tuan_dao.springrestfulAPI.feature.dashboard.DashboardServiceImpl;
+import vn.tuan_dao.springrestfulAPI.feature.dashboard.dto.DashboardResponse;
+import vn.tuan_dao.springrestfulAPI.feature.permission.PermissionRepository;
+import vn.tuan_dao.springrestfulAPI.feature.role.RoleRepository;
+import vn.tuan_dao.springrestfulAPI.feature.user.UserRepository;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.verify;
@@ -73,3 +73,4 @@ class DashboardServiceImplTest {
         assertThat(response.totalPermissions()).isZero();
     }
 }
+

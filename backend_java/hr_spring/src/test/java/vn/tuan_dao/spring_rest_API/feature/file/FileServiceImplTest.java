@@ -1,4 +1,4 @@
-package vn.tuan_dao.spring_rest_API.feature.file;
+package vn.tuan_dao.springrestfulAPI.feature.file;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -13,10 +13,10 @@ import org.junit.jupiter.api.io.TempDir;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.mock.web.MockMultipartFile;
 
-import vn.tuan_dao.springrestwithai.config.FileUploadProperties;
-import vn.tuan_dao.springrestwithai.exception.FileUploadException;
-import vn.tuan_dao.springrestwithai.feature.file.FileServiceImpl;
-import vn.tuan_dao.springrestwithai.feature.file.dto.FileUploadResponse;
+import vn.tuan_dao.springrestfulAPI.config.FileUploadProperties;
+import vn.tuan_dao.springrestfulAPI.exception.FileUploadException;
+import vn.tuan_dao.springrestfulAPI.feature.file.FileServiceImpl;
+import vn.tuan_dao.springrestfulAPI.feature.file.dto.FileUploadResponse;
 
 import java.nio.file.Path;
 
@@ -166,3 +166,4 @@ class FileServiceImplTest {
                 .hasMessageContaining("Thư mục không hợp lệ");
     }
 }
+

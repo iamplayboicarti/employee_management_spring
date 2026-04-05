@@ -1,4 +1,4 @@
-package vn.tuan_dao.spring_rest_API.feature.company;
+package vn.tuan_dao.springrestfulAPI.feature.company;
 
 import tools.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.AfterEach;
@@ -12,11 +12,11 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 
-import vn.tuan_dao.spring_rest_API.common.TestDataFactory;
-import vn.tuan_dao.springrestwithai.feature.company.Company;
-import vn.tuan_dao.springrestwithai.feature.company.CompanyRepository;
-import vn.tuan_dao.springrestwithai.feature.company.dto.CreateCompanyRequest;
-import vn.tuan_dao.springrestwithai.feature.company.dto.UpdateCompanyRequest;
+import vn.tuan_dao.springrestfulAPI.common.TestDataFactory;
+import vn.tuan_dao.springrestfulAPI.feature.company.Company;
+import vn.tuan_dao.springrestfulAPI.feature.company.CompanyRepository;
+import vn.tuan_dao.springrestfulAPI.feature.company.dto.CreateCompanyRequest;
+import vn.tuan_dao.springrestfulAPI.feature.company.dto.UpdateCompanyRequest;
 
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
@@ -316,3 +316,4 @@ class CompanyControllerTest {
         return c;
     }
 }
+

@@ -1,4 +1,4 @@
-package vn.tuan_dao.spring_rest_API.feature.role;
+package vn.tuan_dao.springrestfulAPI.feature.role;
 
 import tools.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.AfterEach;
@@ -12,13 +12,13 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 
-import vn.tuan_dao.spring_rest_API.common.TestDataFactory;
-import vn.tuan_dao.springrestwithai.feature.permission.Permission;
-import vn.tuan_dao.springrestwithai.feature.permission.PermissionRepository;
-import vn.tuan_dao.springrestwithai.feature.role.Role;
-import vn.tuan_dao.springrestwithai.feature.role.RoleRepository;
-import vn.tuan_dao.springrestwithai.feature.role.dto.CreateRoleRequest;
-import vn.tuan_dao.springrestwithai.feature.role.dto.UpdateRoleRequest;
+import vn.tuan_dao.springrestfulAPI.common.TestDataFactory;
+import vn.tuan_dao.springrestfulAPI.feature.permission.Permission;
+import vn.tuan_dao.springrestfulAPI.feature.permission.PermissionRepository;
+import vn.tuan_dao.springrestfulAPI.feature.role.Role;
+import vn.tuan_dao.springrestfulAPI.feature.role.RoleRepository;
+import vn.tuan_dao.springrestfulAPI.feature.role.dto.CreateRoleRequest;
+import vn.tuan_dao.springrestfulAPI.feature.role.dto.UpdateRoleRequest;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -334,3 +334,4 @@ class RoleControllerTest {
         return p;
     }
 }
+

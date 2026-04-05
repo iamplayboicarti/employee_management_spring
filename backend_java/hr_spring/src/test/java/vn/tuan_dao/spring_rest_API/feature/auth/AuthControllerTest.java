@@ -1,4 +1,4 @@
-package vn.tuan_dao.spring_rest_API.feature.auth;
+package vn.tuan_dao.springrestfulAPI.feature.auth;
 
 import tools.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.AfterEach;
@@ -14,13 +14,13 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 
-import vn.tuan_dao.spring_rest_API.common.TestDataFactory;
-import vn.tuan_dao.springrestwithai.feature.auth.RefreshTokenRepository;
-import vn.tuan_dao.springrestwithai.feature.auth.dto.LoginRequest;
-import vn.tuan_dao.springrestwithai.feature.auth.dto.RegisterRequest;
-import vn.tuan_dao.springrestwithai.feature.user.User;
-import vn.tuan_dao.springrestwithai.feature.user.UserRepository;
-import vn.tuan_dao.springrestwithai.util.constant.GenderEnum;
+import vn.tuan_dao.springrestfulAPI.common.TestDataFactory;
+import vn.tuan_dao.springrestfulAPI.feature.auth.RefreshTokenRepository;
+import vn.tuan_dao.springrestfulAPI.feature.auth.dto.LoginRequest;
+import vn.tuan_dao.springrestfulAPI.feature.auth.dto.RegisterRequest;
+import vn.tuan_dao.springrestfulAPI.feature.user.User;
+import vn.tuan_dao.springrestfulAPI.feature.user.UserRepository;
+import vn.tuan_dao.springrestfulAPI.util.constant.GenderEnum;
 import jakarta.servlet.http.Cookie;
 
 import static org.hamcrest.Matchers.is;
@@ -303,3 +303,4 @@ class AuthControllerTest {
         return objectMapper.readTree(body).path("data").path("accessToken").asText();
     }
 }
+

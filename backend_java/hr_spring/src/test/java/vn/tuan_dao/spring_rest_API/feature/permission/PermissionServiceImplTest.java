@@ -1,4 +1,4 @@
-package vn.tuan_dao.spring_rest_API.feature.permission;
+package vn.tuan_dao.springrestfulAPI.feature.permission;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -10,15 +10,15 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 
-import vn.tuan_dao.springrestwithai.dto.ResultPaginationDTO;
-import vn.tuan_dao.springrestwithai.exception.DuplicateResourceException;
-import vn.tuan_dao.springrestwithai.exception.ResourceNotFoundException;
-import vn.tuan_dao.springrestwithai.feature.permission.Permission;
-import vn.tuan_dao.springrestwithai.feature.permission.PermissionRepository;
-import vn.tuan_dao.springrestwithai.feature.permission.PermissionServiceImpl;
-import vn.tuan_dao.springrestwithai.feature.permission.dto.CreatePermissionRequest;
-import vn.tuan_dao.springrestwithai.feature.permission.dto.PermissionResponse;
-import vn.tuan_dao.springrestwithai.feature.permission.dto.UpdatePermissionRequest;
+import vn.tuan_dao.springrestfulAPI.dto.ResultPaginationDTO;
+import vn.tuan_dao.springrestfulAPI.exception.DuplicateResourceException;
+import vn.tuan_dao.springrestfulAPI.exception.ResourceNotFoundException;
+import vn.tuan_dao.springrestfulAPI.feature.permission.Permission;
+import vn.tuan_dao.springrestfulAPI.feature.permission.PermissionRepository;
+import vn.tuan_dao.springrestfulAPI.feature.permission.PermissionServiceImpl;
+import vn.tuan_dao.springrestfulAPI.feature.permission.dto.CreatePermissionRequest;
+import vn.tuan_dao.springrestfulAPI.feature.permission.dto.PermissionResponse;
+import vn.tuan_dao.springrestfulAPI.feature.permission.dto.UpdatePermissionRequest;
 
 import java.util.List;
 import java.util.Optional;
@@ -219,3 +219,4 @@ class PermissionServiceImplTest {
         return p;
     }
 }
+
