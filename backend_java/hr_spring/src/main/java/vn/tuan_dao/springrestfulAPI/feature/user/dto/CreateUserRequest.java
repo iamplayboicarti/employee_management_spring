@@ -23,6 +23,11 @@ public record CreateUserRequest(
         GenderEnum gender,
 
         String avatar,
+        
+        String phone,
+        String department,
+        String status,
+        String nationality,
 
         Long companyId,
 

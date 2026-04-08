@@ -11,14 +11,18 @@ import vn.tuan_dao.springrestfulAPI.exception.ResourceNotFoundException;
 import vn.tuan_dao.springrestfulAPI.feature.permission.dto.CreatePermissionRequest;
 import vn.tuan_dao.springrestfulAPI.feature.permission.dto.PermissionResponse;
 import vn.tuan_dao.springrestfulAPI.feature.permission.dto.UpdatePermissionRequest;
+import vn.tuan_dao.springrestfulAPI.security.PermissionAuthorizationManager;
 
 @Service
 public class PermissionServiceImpl implements PermissionService {
 
     private final PermissionRepository permissionRepository;
+    private final PermissionAuthorizationManager permissionAuthorizationManager;
 
-    public PermissionServiceImpl(PermissionRepository permissionRepository) {
+    public PermissionServiceImpl(PermissionRepository permissionRepository,
+            PermissionAuthorizationManager permissionAuthorizationManager) {
         this.permissionRepository = permissionRepository;
+        this.permissionAuthorizationManager = permissionAuthorizationManager;
     }
 
     @Override
@@ -36,6 +40,7 @@ public class PermissionServiceImpl implements PermissionService {
         permission.setModule(request.module());
 
         Permission saved = permissionRepository.save(permission);
+        permissionAuthorizationManager.refreshCache();
         return PermissionResponse.fromEntity(saved);
     }
 
@@ -57,6 +62,7 @@ public class PermissionServiceImpl implements PermissionService {
         permission.setModule(request.module());
 
         Permission saved = permissionRepository.save(permission);
+        permissionAuthorizationManager.refreshCache();
         return PermissionResponse.fromEntity(saved);
     }
 
@@ -81,6 +87,7 @@ public class PermissionServiceImpl implements PermissionService {
             throw new ResourceNotFoundException("Quyền hạn", "id", id);
         }
         permissionRepository.deleteById(id);
+        permissionAuthorizationManager.refreshCache();
     }
 }
 

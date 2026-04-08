@@ -25,6 +25,11 @@ public record UpdateUserRequest(
 
         String avatar,
 
+        String phone,
+        String department,
+        String status,
+        String nationality,
+
         Long companyId,
 
         List<Long> roleIds) {

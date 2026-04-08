@@ -63,6 +63,10 @@ public class UserServiceImpl implements UserService {
         user.setCompany(company);
         user.setRoles(roles);
         user.setAvatar(request.avatar());
+        user.setPhone(request.phone());
+        user.setDepartment(request.department());
+        user.setStatus(request.status());
+        user.setNationality(request.nationality());
 
         User saved = userRepository.save(user);
         return UserResponse.fromEntity(saved);
@@ -89,6 +93,10 @@ public class UserServiceImpl implements UserService {
         user.setAvatar(request.avatar());
         user.setCompany(company);
         user.setRoles(roles);
+        user.setPhone(request.phone());
+        user.setDepartment(request.department());
+        user.setStatus(request.status());
+        user.setNationality(request.nationality());
 
         User saved = userRepository.save(user);
         return UserResponse.fromEntity(saved);

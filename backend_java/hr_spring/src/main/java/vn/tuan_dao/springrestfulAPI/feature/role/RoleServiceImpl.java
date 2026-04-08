@@ -13,6 +13,7 @@ import vn.tuan_dao.springrestfulAPI.feature.permission.PermissionRepository;
 import vn.tuan_dao.springrestfulAPI.feature.role.dto.CreateRoleRequest;
 import vn.tuan_dao.springrestfulAPI.feature.role.dto.RoleResponse;
 import vn.tuan_dao.springrestfulAPI.feature.role.dto.UpdateRoleRequest;
+import vn.tuan_dao.springrestfulAPI.security.PermissionAuthorizationManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,11 +25,14 @@ public class RoleServiceImpl implements RoleService {
 
     private final RoleRepository roleRepository;
     private final PermissionRepository permissionRepository;
+    private final PermissionAuthorizationManager permissionAuthorizationManager;
 
     public RoleServiceImpl(RoleRepository roleRepository,
-            PermissionRepository permissionRepository) {
+            PermissionRepository permissionRepository,
+            PermissionAuthorizationManager permissionAuthorizationManager) {
         this.roleRepository = roleRepository;
         this.permissionRepository = permissionRepository;
+        this.permissionAuthorizationManager = permissionAuthorizationManager;
     }
 
     @Override
@@ -46,6 +50,7 @@ public class RoleServiceImpl implements RoleService {
         role.setPermissions(permissions);
 
         Role saved = roleRepository.save(role);
+        permissionAuthorizationManager.refreshCache();
         return RoleResponse.fromEntity(saved);
     }
 
@@ -66,6 +71,7 @@ public class RoleServiceImpl implements RoleService {
         role.setPermissions(permissions);
 
         Role saved = roleRepository.save(role);
+        permissionAuthorizationManager.refreshCache();
         return RoleResponse.fromEntity(saved);
     }
 
@@ -92,6 +98,7 @@ public class RoleServiceImpl implements RoleService {
             throw new ResourceNotFoundException("Vai trò", "id", id);
         }
         roleRepository.deleteById(id);
+        permissionAuthorizationManager.refreshCache();
     }
 
     private List<Permission> resolvePermissions(List<Long> permissionIds) {

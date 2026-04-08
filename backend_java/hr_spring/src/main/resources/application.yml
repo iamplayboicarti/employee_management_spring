@@ -32,13 +32,15 @@ spring:
 
 jwt:
     secret: tuan_dao_jwt_secret_key_HS256_tuan_dao_jwt_secret_key_HS256_tuan_dao_jwt_secret_key_HS256
-    expiration: 86400000
-    #1000d
-    access-token-expiration: 86400000000
-    #7d
+    # 1 ngay = 86400000ms
+    access-token-expiration: 86400000
+    # 7 ngay = 604800000ms
     refresh-expiration: 604800000
 
 app:
+    # Đặt true khi deploy HTTPS (production)
+    cookie:
+        secure: false
     upload:
         base-dir: ./uploads
         max-file-size: 5242880
@@ -51,7 +53,7 @@ app:
         allowed-folders:
             - avatars
             - logos
-    seed-data: false
+    seed-data: true
 
 springdoc:
     swagger-ui:

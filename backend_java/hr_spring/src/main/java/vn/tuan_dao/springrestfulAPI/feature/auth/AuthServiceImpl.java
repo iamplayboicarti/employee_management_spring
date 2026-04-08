@@ -23,6 +23,8 @@ import vn.tuan_dao.springrestfulAPI.feature.auth.dto.LoginRequest;
 import vn.tuan_dao.springrestfulAPI.feature.auth.dto.LoginResponse;
 import vn.tuan_dao.springrestfulAPI.feature.auth.dto.RegisterRequest;
 import vn.tuan_dao.springrestfulAPI.feature.auth.dto.RegisterResponse;
+import vn.tuan_dao.springrestfulAPI.feature.role.Role;
+import vn.tuan_dao.springrestfulAPI.feature.role.RoleRepository;
 import vn.tuan_dao.springrestfulAPI.feature.user.User;
 import vn.tuan_dao.springrestfulAPI.feature.user.UserRepository;
 import vn.tuan_dao.springrestfulAPI.feature.user.dto.UserResponse;
@@ -31,6 +33,7 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.HexFormat;
 import java.util.List;
 
@@ -44,6 +47,7 @@ public class AuthServiceImpl implements AuthService {
     private final UserRepository userRepository;
     private final RefreshTokenRepository refreshTokenRepository;
     private final PasswordEncoder passwordEncoder;
+    private final RoleRepository roleRepository;
 
     @Value("${jwt.access-token-expiration}")
     private long accessTokenExpiration;
@@ -55,12 +59,14 @@ public class AuthServiceImpl implements AuthService {
             JwtEncoder jwtEncoder,
             UserRepository userRepository,
             RefreshTokenRepository refreshTokenRepository,
-            PasswordEncoder passwordEncoder) {
+            PasswordEncoder passwordEncoder,
+            RoleRepository roleRepository) {
         this.authenticationManager = authenticationManager;
         this.jwtEncoder = jwtEncoder;
         this.userRepository = userRepository;
         this.refreshTokenRepository = refreshTokenRepository;
         this.passwordEncoder = passwordEncoder;
+        this.roleRepository = roleRepository;
     }
 
     @Override
@@ -95,6 +101,11 @@ public class AuthServiceImpl implements AuthService {
         user.setAge(request.age());
         user.setGender(request.gender());
         user.setAddress(request.address());
+
+        // Gán role USER mặc định nếu tồn tại trong DB
+        List<Role> defaultRoles = new ArrayList<>();
+        roleRepository.findByName("USER").ifPresent(defaultRoles::add);
+        user.setRoles(defaultRoles);
 
         User saved = userRepository.save(user);
         log.info("Người dùng đăng ký thành công: {}", saved.getEmail());

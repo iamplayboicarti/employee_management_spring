@@ -2,11 +2,13 @@ package vn.tuan_dao.springrestfulAPI.security;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Supplier;
 
+import org.springframework.boot.context.event.ApplicationReadyEvent;
+import org.springframework.context.event.EventListener;
 import org.springframework.security.authorization.AuthorizationDecision;
 import org.springframework.security.authorization.AuthorizationManager;
 import org.springframework.security.core.Authentication;
@@ -26,25 +28,36 @@ public class PermissionAuthorizationManager
     private final RoleRepository roleRepository;
     private final AntPathMatcher pathMatcher = new AntPathMatcher();
 
-    // Cache: roleName → List<Permission>
-    // Load 1 lần, invalidate khi admin thay đổi
-    private Map<String, List<Permission>> rolePermissionsCache;
+    // ConcurrentHashMap để thread-safe khi refreshCache() gọi từ nhiều thread
+    private volatile Map<String, List<Permission>> rolePermissionsCache = new ConcurrentHashMap<>();
 
     public PermissionAuthorizationManager(RoleRepository roleRepository) {
         this.roleRepository = roleRepository;
-        loadCache();
     }
 
-    public void loadCache() {
-        // 1 query JOIN FETCH tất cả roles + permissions
+    /**
+     * Chạy sau khi toàn bộ CommandLineRunner (kể cả DatabaseSeeder) đã xong.
+     * Đảm bảo cache được build SAU khi DB đã được seed.
+     */
+    @EventListener(ApplicationReadyEvent.class)
+    public void onApplicationReady() {
+        refreshCache();
+    }
+
+    /**
+     * Reload toàn bộ role-permission từ DB.
+     * Gọi sau mỗi lần tạo/sửa/xóa Role hoặc Permission.
+     */
+    public void refreshCache() {
         List<Role> roles = roleRepository.findAllWithPermissions();
 
-        Map<String, List<Permission>> cache = new HashMap<>();
+        Map<String, List<Permission>> newCache = new ConcurrentHashMap<>();
         for (Role role : roles) {
-            cache.computeIfAbsent("ROLE_" + role.getName(), k -> new ArrayList<>())
+            newCache.computeIfAbsent("ROLE_" + role.getName(), k -> new ArrayList<>())
                     .addAll(role.getPermissions());
         }
-        this.rolePermissionsCache = cache;
+        // Gán atomic — các request đang xử lý vẫn dùng snapshot cũ
+        this.rolePermissionsCache = newCache;
     }
 
     @Override

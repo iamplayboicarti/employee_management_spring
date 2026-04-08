@@ -4,6 +4,7 @@ import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
+import vn.tuan_dao.springrestfulAPI.config.CookieProperties;
 import vn.tuan_dao.springrestfulAPI.dto.ApiResponse;
 import vn.tuan_dao.springrestfulAPI.exception.InvalidTokenException;
 import vn.tuan_dao.springrestfulAPI.feature.auth.dto.LoginRequest;
@@ -31,12 +32,15 @@ public class AuthController {
 
     private static final String REFRESH_TOKEN_COOKIE_NAME = "refresh_token";
     private static final String COOKIE_PATH = "/api/v1/auth";
-    private static final int COOKIE_MAX_AGE = 259200;
+    // 7 ngày = 604800 giây — khớp với jwt.refresh-expiration
+    private static final int COOKIE_MAX_AGE = 604800;
 
     private final AuthService authService;
+    private final CookieProperties cookieProperties;
 
-    public AuthController(AuthService authService) {
+    public AuthController(AuthService authService, CookieProperties cookieProperties) {
         this.authService = authService;
+        this.cookieProperties = cookieProperties;
     }
 
     @PostMapping("/login")
@@ -126,10 +130,16 @@ public class AuthController {
     }
 
     private void setRefreshTokenCookie(HttpServletResponse response, String rawToken) {
-        response.setHeader("Set-Cookie",
-                REFRESH_TOKEN_COOKIE_NAME + "=" + rawToken
-                        + "; HttpOnly; Secure; SameSite=Lax; Path=" + COOKIE_PATH
-                        + "; Max-Age=" + COOKIE_MAX_AGE);
+        StringBuilder cookie = new StringBuilder();
+        cookie.append(REFRESH_TOKEN_COOKIE_NAME).append("=").append(rawToken);
+        cookie.append("; HttpOnly");
+        if (cookieProperties.isSecure()) {
+            cookie.append("; Secure");
+        }
+        cookie.append("; SameSite=Lax");
+        cookie.append("; Path=").append(COOKIE_PATH);
+        cookie.append("; Max-Age=").append(COOKIE_MAX_AGE);
+        response.setHeader("Set-Cookie", cookie.toString());
     }
 
     private void clearRefreshTokenCookie(HttpServletResponse response) {

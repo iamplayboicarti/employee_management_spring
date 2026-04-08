@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cat d:/Hr_spring/frontend_react/src/config/*.ts)",
+      "Bash(cat d:/Hr_spring/backend_java/hr_spring/src/main/java/vn/tuan_dao/springrestfulAPI/feature/auth/*.java)",
+      "Bash(cat d:/Hr_spring/frontend_react/src/features/attendance/components/*.tsx)",
+      "Bash(cat d:/Hr_spring/frontend_react/src/features/payroll/components/*.tsx)",
+      "Bash(cat d:/Hr_spring/frontend_react/src/features/directory/components/*.tsx)",
+      "Bash(xargs grep:*)"
+    ]
+  }
+}

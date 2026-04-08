@@ -1,6 +1,6 @@
 package vn.tuan_dao.springrestfulAPI.config;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import tools.jackson.databind.ObjectMapper;
 
 import vn.tuan_dao.springrestfulAPI.dto.ApiResponse;
 import vn.tuan_dao.springrestfulAPI.security.PermissionAuthorizationManager;
@@ -45,7 +45,6 @@ public class SecurityConfig {
             "/api/v1/auth/login",
             "/api/v1/auth/register",
             "/api/v1/auth/refresh",
-            "/api/v1/auth/me",
             "/api/v1/auth/logout",
             "/api/v1/dashboard",
             "/uploads/**"
@@ -80,6 +79,7 @@ public class SecurityConfig {
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(WHITELIST).permitAll()
+                        .requestMatchers("/api/v1/auth/me").authenticated()
                         .anyRequest().access(permissionAuthorizationManager))
 
                 .oauth2ResourceServer(oauth2 -> oauth2.jwt(jwt -> {
